@@ -1,20 +1,23 @@
 import React from 'react';
+import pokesdata from '../data/pokesdata.json';
 import '../stylesheet/App.css';
+import PokeList from '../components/PokeList';
 
-function App() {
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src='' className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pokeData: pokesdata,
+    };
+  }
+
+  render() {
+    return (
+      <div className='App__container'>
+        <h1 className='App__title'>PoKEMON</h1>
+        <PokeList pokesdata={this.state.pokeData} />
+      </div>
+    );
+  }
 }
-
 export default App;
